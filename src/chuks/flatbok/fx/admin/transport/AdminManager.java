@@ -342,7 +342,7 @@ public class AdminManager implements AdminAccount {
     }
 
     @Override
-    public void onOrderNotAvailable(String errMsg) {
+    public void onOrderNotAvailable(String req_identifier, String errMsg) {
         orderActionListenerList.forEach(listener -> {
             listener.onOrderSendFailed(null, errMsg);
         });
