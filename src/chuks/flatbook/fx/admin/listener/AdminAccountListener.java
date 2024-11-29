@@ -4,7 +4,7 @@
  */
 package chuks.flatbook.fx.admin.listener;
 
-import chuks.flatbook.fx.common.account.profile.AdminProfile;
+import chuks.flatbook.fx.common.account.profile.AdminInfo;
 import java.util.List;
 
 /**
@@ -102,5 +102,5 @@ public interface AdminAccountListener {
      */
     void onAdminPasswordChanged(char[] new_password);
     
-    void onPaginatedAdmins(List<AdminProfile> admins, int overall_total);
+    void onPaginatedAdmins(List<AdminInfo> admins, int overall_total);
 }

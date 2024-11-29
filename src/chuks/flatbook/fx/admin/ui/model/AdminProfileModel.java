@@ -5,7 +5,7 @@
 package chuks.flatbook.fx.admin.ui.model;
 
 import chuks.flatbook.fx.admin.listener.AdminAccountListener;
-import chuks.flatbook.fx.common.account.profile.AdminProfile;
+import chuks.flatbook.fx.common.account.profile.AdminInfo;
 import chuks.flatbook.fx.common.util.log.LogEntry;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class AdminProfileModel  extends AbstractTableModel implements AdminAccou
     private String approvedBy_AdminID = "Approv. By";
     private String isLoggedIn = "Log. In";
     protected String[] columnNames = { accountNumber, accountName, email, registrationTime, approvalTime, approvedBy_AdminID,isLoggedIn};
-    protected LinkedList<AdminProfile> profileList = new LinkedList<>();
+    protected LinkedList<AdminInfo> profileList = new LinkedList<>();
 
     @Override
     public int getRowCount() {
@@ -44,7 +44,7 @@ public class AdminProfileModel  extends AbstractTableModel implements AdminAccou
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        AdminProfile profile = profileList.get(rowIndex);
+        AdminInfo profile = profileList.get(rowIndex);
 
         switch (columnIndex) {
             case 0 -> {
@@ -130,7 +130,7 @@ public class AdminProfileModel  extends AbstractTableModel implements AdminAccou
     }
 
     @Override
-    public void onPaginatedAdmins(List<AdminProfile> admins, int overall_total) {
+    public void onPaginatedAdmins(List<AdminInfo> admins, int overall_total) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

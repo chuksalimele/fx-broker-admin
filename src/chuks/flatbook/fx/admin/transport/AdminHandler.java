@@ -8,8 +8,8 @@ import chuks.flatbook.fx.transport.SharableTransportHandler;
 import chuks.flatbook.fx.admin.account.contract.AccountContext;
 import chuks.flatbook.fx.common.account.order.Order;
 import chuks.flatbook.fx.common.account.order.SymbolInfo;
-import chuks.flatbook.fx.common.account.profile.AdminProfile;
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.AdminInfo;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 import chuks.flatbook.fx.transport.message.ChannelMessage;
 import static chuks.flatbook.fx.transport.message.MessageType.ACCOUNT_APPROVED;
 import io.netty.channel.ChannelHandlerContext;
@@ -265,7 +265,7 @@ class AdminHandler extends SharableTransportHandler {
     private List toAdminProfileList(String[] strTrades) {        
         List list = new LinkedList();
         for (String strTrade : strTrades) {
-            list.add(new AdminProfile(strTrade));
+            list.add(new AdminInfo(strTrade));
         }
         return list;
     }
@@ -273,7 +273,7 @@ class AdminHandler extends SharableTransportHandler {
     private List toTraderProfileList(String[] strTrades) {        
         List list = new LinkedList();
         for (String strTrade : strTrades) {
-            list.add(new TraderAccountProfile(strTrade));
+            list.add(new TraderInfo(strTrade));
         }
         return list;
     }

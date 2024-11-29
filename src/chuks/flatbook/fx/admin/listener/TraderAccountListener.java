@@ -4,7 +4,7 @@
  */
 package chuks.flatbook.fx.admin.listener;
 
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 import java.util.List;
 
 /**
@@ -12,7 +12,7 @@ import java.util.List;
  * @author user
  */
 public interface TraderAccountListener {
-    void onRegister(TraderAccountProfile trader);
+    void onRegister(TraderInfo trader);
     void onEmailVerified(String trader_email, long verified_time);
     void onAccountOpened(String trader_email);
     void onAccountClosed(String trader_email);
@@ -22,6 +22,6 @@ public interface TraderAccountListener {
     void onAccountDisabled(String trader_email);
     void onAccountApproved(String trader_email, long approval_time);
     void onAccountApproveFail(String trader_email);
-   void onPaginatedTraders(List<TraderAccountProfile> traders, int overall_total);
+   void onPaginatedTraders(List<TraderInfo> traders, int overall_total);
   
 }

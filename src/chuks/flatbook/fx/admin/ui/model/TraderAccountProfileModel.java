@@ -5,7 +5,7 @@
 package chuks.flatbook.fx.admin.ui.model;
 
 import chuks.flatbook.fx.admin.listener.TraderAccountListener;
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -39,7 +39,7 @@ public class TraderAccountProfileModel extends AbstractTableModel implements Tra
         isLoggedIn,
         isActive,
         isEnabled};
-    protected LinkedList<TraderAccountProfile> profileList = new LinkedList<>();
+    protected LinkedList<TraderInfo> profileList = new LinkedList<>();
 
     @Override
     public int getRowCount() {
@@ -67,7 +67,7 @@ public class TraderAccountProfileModel extends AbstractTableModel implements Tra
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        TraderAccountProfile profile = profileList.get(rowIndex);
+        TraderInfo profile = profileList.get(rowIndex);
 
         switch (columnIndex) {
             case 0 -> {
@@ -123,18 +123,18 @@ public class TraderAccountProfileModel extends AbstractTableModel implements Tra
         return -1;
     }
 
-    TraderAccountProfile getProfileByEmail(String trader_email) {
+    TraderInfo getProfileByEmail(String trader_email) {
         int index = getProfileIndexByEmail(trader_email);
         return index != -1 ? profileList.get(index) : null;
     }
 
-    TraderAccountProfile getProfileByAccountNumber(int account_number) {
+    TraderInfo getProfileByAccountNumber(int account_number) {
         int index = getProfileIndexByAccountNumber(account_number);
         return index != -1 ? profileList.get(index) : null;
     }
 
     @Override
-    public void onRegister(TraderAccountProfile trader) {
+    public void onRegister(TraderInfo trader) {
         profileList.add(trader);
         fireTableRowsInserted(profileList.size()-1, profileList.size()-1);
     }
@@ -213,7 +213,7 @@ public class TraderAccountProfileModel extends AbstractTableModel implements Tra
     }
 
     @Override
-    public void onPaginatedTraders(List<TraderAccountProfile> traders, int overall_total) {
+    public void onPaginatedTraders(List<TraderInfo> traders, int overall_total) {
         profileList.clear();
         profileList.addAll(traders);
         fireTableRowsInserted(0, profileList.size()-1);

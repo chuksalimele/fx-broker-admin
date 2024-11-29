@@ -18,13 +18,13 @@ import java.util.List;
 import java.util.function.Consumer;
 import chuks.flatbook.fx.admin.account.contract.AdminAccount;
 import chuks.flatbook.fx.common.util.log.LogLevel;
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 import chuks.flatbook.fx.admin.listener.AdminAccountListener;
 import chuks.flatbook.fx.admin.listener.ClientIPListener;
 import chuks.flatbook.fx.admin.listener.RemoteConfigListener;
 import chuks.flatbook.fx.admin.listener.RemoteLogListener;
 import chuks.flatbook.fx.admin.listener.TraderAccountListener;
-import chuks.flatbook.fx.common.account.profile.AdminProfile;
+import chuks.flatbook.fx.common.account.profile.AdminInfo;
 import chuks.flatbook.fx.common.account.profile.ClientIPInfo;
 import chuks.flatbook.fx.common.util.OnceAccessStore;
 import chuks.flatbook.fx.transport.message.MessageFactory;
@@ -533,7 +533,7 @@ public class AdminManager implements AdminAccount {
     }
 
     @Override
-    public void onRegister(TraderAccountProfile trader) {
+    public void onRegister(TraderInfo trader) {
         traderAccountListenerList.forEach(listener -> {
             listener.onRegister(trader);
         });
@@ -603,7 +603,7 @@ public class AdminManager implements AdminAccount {
     }
 
     @Override
-    public void onPaginatedTraders(List<TraderAccountProfile> traders, int overall_total) {
+    public void onPaginatedTraders(List<TraderInfo> traders, int overall_total) {
         this.traderAccountListenerList.forEach(listener -> {
             listener.onPaginatedTraders(traders, overall_total);
         });
@@ -617,7 +617,7 @@ public class AdminManager implements AdminAccount {
     }
 
     @Override
-    public void onPaginatedAdmins(List<AdminProfile> admins, int overall_total) {
+    public void onPaginatedAdmins(List<AdminAccount> admins, int overall_total) {
         this.adminAccountListenerList.forEach(listener -> {
             listener.onPaginatedAdmins(admins, overall_total);
         });
