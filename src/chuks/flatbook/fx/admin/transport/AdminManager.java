@@ -615,9 +615,9 @@ public class AdminManager implements AdminAccount {
             listener.onAdminPasswordChanged(new_password);
         });
     }
-
+       
     @Override
-    public void onPaginatedAdmins(List<AdminAccount> admins, int overall_total) {
+    public void onPaginatedAdmins(List<AdminInfo> admins, int overall_total) {              
         this.adminAccountListenerList.forEach(listener -> {
             listener.onPaginatedAdmins(admins, overall_total);
         });
@@ -1018,5 +1018,6 @@ public class AdminManager implements AdminAccount {
             onAdminRequestFailed(ERR_REQUEST_SEND_FAIL_BY_CONNECTION_ERROR);
         });
     }
+
 
 }
