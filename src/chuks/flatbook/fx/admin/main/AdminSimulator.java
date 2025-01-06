@@ -25,7 +25,7 @@ public class AdminSimulator extends AdminManager{
     public static void main(String... args) throws Exception{        
 
         adminAccount = new AdminSimulator();
-        admin = new Admin(adminAccount, "localhost", 8080);
+        admin = new Admin(adminAccount, "localhost", 7000);
         admin.start();
 
     }

@@ -976,7 +976,7 @@ public class AdminGUI extends javax.swing.JFrame {
                     new AdminGUI().setVisible(true);
 
                     adminAccount = new AdminManager();
-                    admin = new Admin(adminAccount, "144.91.67.90", 7070);
+                    admin = new Admin(adminAccount, "localhost", 7000);
                     admin.start();
                 } catch (Exception ex) {
                     Logger.getLogger(AdminGUI.class.getName()).log(Level.SEVERE, null, ex);
